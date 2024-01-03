@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useRouter, useSearchParams } from "next/navigation";
-import GoogleSignInButton from "../github-auth-button";
+import { GitHubSignInButton, GoogleSignInButton } from "../github-auth-button";
 import { signIn } from "next-auth/react";
 
 const formSchema = z.object({
@@ -85,6 +85,7 @@ export default function UserAuthForm() {
           </span>
         </div>
       </div>
+      <GitHubSignInButton />
       <GoogleSignInButton />
     </>
   );
