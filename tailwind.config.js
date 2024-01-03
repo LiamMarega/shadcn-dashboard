@@ -9,6 +9,9 @@ module.exports = {
     "./src/**/*.{ts,tsx}",
   ],
   theme: {
+    fontFamily: {
+      solidenTrial: ["var(--font-soliden-trial)"],
+    },
     container: {
       center: true,
       padding: "2rem",
