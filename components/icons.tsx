@@ -23,6 +23,7 @@ import {
   Plus,
   Settings,
   SunMedium,
+  Table,
   Trash,
   Twitter,
   User,
@@ -35,6 +36,7 @@ export type Icon = LucideIcon;
 
 export const Icons = {
   dashboard: LayoutDashboardIcon,
+  table: Table,
   logo: Command,
   login: LogIn,
   close: X,
@@ -77,6 +79,44 @@ export const Icons = {
       ></path>
     </svg>
   ),
+  google: ({ ...props }: LucideProps) => (
+    <svg
+      viewBox="0 0 24 24"
+      stroke="#000000"
+      fill="none"
+      data-icon="google"
+      strokeLinejoin="round"
+      strokeLinecap="round"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M12 6.5625C12.9876 6.5625 13.8984 6.8157 14.686 7.31283C15.145 7.60249 15.7599 7.60632 16.1437 7.22257L17.2894 6.07686C17.6899 5.67632 17.6811 5.01805 17.225 4.68219C15.7907 3.6261 14.0321 3 12 3C8.4825 3 5.44125 5.0175 3.96 7.9575L6.9525 10.2787C7.66125 8.145 9.6525 6.5625 12 6.5625Z"></path>
+      <path d="M20.6175 12.2063C20.6175 11.9155 20.6038 11.6293 20.5795 11.3482C20.5372 10.8578 20.1124 10.5 19.6202 10.5H13C12.4477 10.5 12 10.9477 12 11.5V12.8825C12 13.4348 12.4477 13.8825 13 13.8825H16.8525C16.635 14.9925 16.005 15.9375 15.06 16.575L17.9587 18.825C19.65 17.2575 20.6175 14.94 20.6175 12.2063Z"></path>
+      <path d="M6.94875 13.7212C6.76875 13.1775 6.66375 12.6 6.66375 12C6.66375 11.4 6.765 10.8225 6.94875 10.2787L3.95625 7.95749C3.345 9.17249 3 10.545 3 12C3 13.455 3.345 14.8275 3.96 16.0425L6.94875 13.7212Z"></path>
+      <path d="M12 21C14.43 21 16.4737 20.2012 17.9587 18.8212L15.06 16.5712C14.2537 17.115 13.215 17.4337 12 17.4337C9.6525 17.4337 7.66125 15.8512 6.94875 13.7175L3.95625 16.0387C5.44125 18.9825 8.4825 21 12 21Z"></path>
+    </svg>
+  ),
+  addUser: ({ ...props }: LucideProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      strokeWidth="2"
+      stroke="currentColor"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+      <path d="M16 19h6" />
+      <path d="M19 16v6" />
+      <path d="M6 21v-2a4 4 0 0 1 4 -4h4" />
+    </svg>
+  ),
+
   twitter: Twitter,
   check: Check,
 };
