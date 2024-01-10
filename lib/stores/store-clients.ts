@@ -3,13 +3,24 @@ import { v4 as uuid } from "uuid";
 import { persist } from "zustand/middleware";
 import { Column } from "@/components/kanban/board-column";
 import { UniqueIdentifier } from "@dnd-kit/core";
+import { users } from "@/constants/users";
+import { time } from "console";
+import { TIMEOUT } from "dns";
 
 export type Status = "TODO" | "IN_PROGRESS" | "DONE";
 
 const defaultCols = [
   {
     id: "TODO" as const,
-    title: "Todo",
+    title: "Not contacted",
+  },
+  {
+    id: "IN_PROGRESS" as const,
+    title: "Contacted",
+  },
+  {
+    id: "DONE" as const,
+    title: "Done",
   },
 ] satisfies Column[];
 
@@ -19,7 +30,12 @@ export type Client = {
   id: string;
   title: string;
   description?: string;
-  status: Status;
+  status?: Status;
+  city?: string;
+  website?: string;
+  rating?: number;
+  phone?: string;
+  email?: string;
 };
 
 export type State = {
@@ -37,6 +53,7 @@ export type Actions = {
   setClient: (updatedClients: Client[]) => void;
   setCols: (cols: Column[]) => void;
   updateCol: (id: UniqueIdentifier, newName: string) => void;
+  getClient: () => void;
 };
 
 const initialClients: Client[] = [
@@ -45,6 +62,11 @@ const initialClients: Client[] = [
     description: "Cambio de aceite y filtro de aceite",
     status: "TODO",
     title: "Taller Roberto title",
+    city: "Santo Domingo",
+    website: "https://www.google.com",
+    rating: 4,
+    phone: "809-555-5555",
+    email: "",
   },
 ];
 
@@ -58,7 +80,17 @@ export const useClientsStore = create<State & Actions>()(
         set((state) => ({
           clients: [
             ...state.clients,
-            { id: uuid(), title, description, status: "TODO" },
+            {
+              id: uuid(),
+              title,
+              description,
+              status: "TODO",
+              city: "",
+              website: "",
+              rating: 0,
+              phone: "",
+              email: "",
+            },
           ],
         })),
       updateCol: (id: UniqueIdentifier, newName: string) =>
@@ -82,6 +114,26 @@ export const useClientsStore = create<State & Actions>()(
         })),
       setClient: (newClients: Client[]) => set({ clients: newClients }),
       setCols: (newCols: Column[]) => set({ columns: newCols }),
+      getClient: () => {
+        setTimeout(() => {
+			set((state) => ({
+				clients: [
+				  ...state.clients,
+				  {
+					id: uuid(),
+					title: "Taller Roberto title",
+					description: "Cambio de aceite y filtro de aceite",
+					status: "TODO",
+					city: "",
+					website: "",
+					rating: 0,
+					phone: "",
+					email: "",
+				  },
+				],
+			  })),
+        }, 3000);
+      },
     }),
     { name: "client-store", skipHydration: true },
   ),

@@ -11,6 +11,7 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Avvvatars from "avvvatars-react";
 import { useSession, signIn, signOut } from "next-auth/react";
 export function UserNav() {
   const { data: session } = useSession();
@@ -24,7 +25,13 @@ export function UserNav() {
                 src={session.user?.image ?? ""}
                 alt={session.user?.name ?? ""}
               />
-              <AvatarFallback>{session.user?.name}</AvatarFallback>
+              <AvatarFallback>
+                <Avvvatars
+                  value={session.user?.name ?? ""}
+                  displayValue={session.user?.name ?? ""}
+                  style="character"
+                />
+              </AvatarFallback>
             </Avatar>
           </Button>
         </DropdownMenuTrigger>
