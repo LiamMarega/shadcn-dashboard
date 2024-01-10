@@ -119,6 +119,12 @@ export const navItems: NavItem[] = [
     label: "Discover",
   },
   {
+    title: "Customers",
+    href: "/dashboard/user",
+    icon: "user",
+    label: "user",
+  },
+  {
     title: "Dashboard",
     href: "/dashboard",
     icon: "dashboard",
@@ -130,14 +136,6 @@ export const navItems: NavItem[] = [
     icon: "kanban",
     label: "kanban",
   },
-
-  {
-    title: "Customers",
-    href: "/dashboard/user",
-    icon: "user",
-    label: "user",
-  },
-
   /*   {
     title: "Profile",
     href: "/dashboard/profile",
