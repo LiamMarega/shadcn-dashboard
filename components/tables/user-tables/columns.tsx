@@ -3,6 +3,8 @@ import { ColumnDef } from "@tanstack/react-table";
 import { CellAction } from "./cell-action";
 import { User } from "@/constants/data";
 import { Checkbox } from "@/components/ui/checkbox";
+import { MsgAction } from "./msg-action";
+import { WebAction } from "./website-action";
 
 export const columns: ColumnDef<User>[] = [
   {
@@ -39,6 +41,17 @@ export const columns: ColumnDef<User>[] = [
   {
     accessorKey: "status",
     header: "STATUS",
+  },
+
+  {
+    header: "WEBSITE",
+    id: "website",
+    cell: ({ row }) => <WebAction data={row.original} />,
+  },
+  {
+    header: "SEND",
+    id: "send-msg",
+    cell: ({ row }) => <MsgAction data={row.original} />,
   },
   {
     id: "actions",

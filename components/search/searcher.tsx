@@ -15,7 +15,10 @@ export const SearchBar = () => {
   };
 
   return (
-    <form onSubmit={(e) => onSubmit(e)}>
+    <form
+      onSubmit={(e) => onSubmit(e)}
+      className=" hover:shadow-[0px_0px_15px_0.5px] hover:shadow-primaryColor  duration-500"
+    >
       <Input
         radius="full"
         value={value}
