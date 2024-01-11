@@ -28,7 +28,7 @@ export type ColumnId = (typeof defaultCols)[number]["id"];
 
 export type Client = {
   id: string;
-  title: string;
+  name: string;
   description?: string;
   status?: Status;
   city?: string;
@@ -53,7 +53,7 @@ export type Actions = {
   setClient: (updatedClients: Client[]) => void;
   setCols: (cols: Column[]) => void;
   updateCol: (id: UniqueIdentifier, newName: string) => void;
-  getClient: () => void;
+  getClient: (value: string) => Promise<void>;
 };
 
 const initialClients: Client[] = [
@@ -61,7 +61,7 @@ const initialClients: Client[] = [
     id: "Taller Roberto",
     description: "Cambio de aceite y filtro de aceite",
     status: "TODO",
-    title: "Taller Roberto title",
+    name: "Taller Roberto title",
     city: "Santo Domingo",
     website: "https://www.google.com",
     rating: 4,
@@ -70,7 +70,7 @@ const initialClients: Client[] = [
   },
 ];
 
-export const useClientsStore = create<State & Actions>()(
+export const useClientStore = create<State & Actions>()(
   persist(
     (set) => ({
       clients: initialClients,
@@ -82,7 +82,7 @@ export const useClientsStore = create<State & Actions>()(
             ...state.clients,
             {
               id: uuid(),
-              title,
+              name: title,
               description,
               status: "TODO",
               city: "",
@@ -114,27 +114,19 @@ export const useClientsStore = create<State & Actions>()(
         })),
       setClient: (newClients: Client[]) => set({ clients: newClients }),
       setCols: (newCols: Column[]) => set({ columns: newCols }),
-      getClient: () => {
-        setTimeout(() => {
-			set((state) => ({
-				clients: [
-				  ...state.clients,
-				  {
-					id: uuid(),
-					title: "Taller Roberto title",
-					description: "Cambio de aceite y filtro de aceite",
-					status: "TODO",
-					city: "",
-					website: "",
-					rating: 0,
-					phone: "",
-					email: "",
-				  },
-				],
-			  })),
+      getClient: async (value: string) => {
+        await setTimeout(() => {
+          set({
+            clients: users.map((user) => ({
+              ...user,
+              id: user.id.toString(),
+              status: "TODO" as const,
+            })),
+          });
         }, 3000);
       },
     }),
+
     { name: "client-store", skipHydration: true },
   ),
 );

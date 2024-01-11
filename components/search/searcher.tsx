@@ -5,13 +5,17 @@ import { Input } from "@nextui-org/input";
 import DropMenu from "./dropdown";
 import { Kbd } from "@nextui-org/kbd";
 import { Icons } from "../icons";
+import { useClientStore } from "@/lib/stores/store-clients";
 
 export const SearchBar = () => {
   const [value, setValue] = useState("");
 
+  const { getClient, clients } = useClientStore();
+
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(value);
+    getClient(value);
   };
 
   return (
