@@ -1,3 +1,4 @@
+import Loading from "@/app/loading";
 import Header from "@/components/layout/header";
 import Sidebar from "@/components/layout/sidebar";
 import type { Metadata } from "next";
@@ -14,6 +15,7 @@ export default function DiscoverLayout({
 }) {
   return (
     <>
+      <Loading />
       <Header />
       <div className="flex h-screen overflow-hidden">
         <Sidebar className="w-1/6 hidden md:block" />

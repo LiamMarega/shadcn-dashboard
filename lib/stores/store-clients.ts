@@ -115,15 +115,15 @@ export const useClientStore = create<State & Actions>()(
       setClient: (newClients: Client[]) => set({ clients: newClients }),
       setCols: (newCols: Column[]) => set({ columns: newCols }),
       getClient: async (value: string) => {
-        await setTimeout(() => {
-          set({
-            clients: users.map((user) => ({
-              ...user,
-              id: user.id.toString(),
-              status: "TODO" as const,
-            })),
-          });
-        }, 3000);
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+        set({
+          clients: users.map((user) => ({
+            ...user,
+            id: user.id.toString(),
+            status: "TODO" as const,
+          })),
+        });
+        // set promise resolver
       },
     }),
 

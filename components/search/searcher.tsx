@@ -6,16 +6,19 @@ import DropMenu from "./dropdown";
 import { Kbd } from "@nextui-org/kbd";
 import { Icons } from "../icons";
 import { useClientStore } from "@/lib/stores/store-clients";
+import { useGlobalStore } from "@/lib/stores/global-store";
 
 export const SearchBar = () => {
   const [value, setValue] = useState("");
 
-  const { getClient, clients } = useClientStore();
+  const { getClient } = useClientStore();
+  const { setLoading } = useGlobalStore();
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(value);
-    getClient(value);
+    setLoading(true);
+    await getClient(value);
+    setLoading(false);
   };
 
   return (
