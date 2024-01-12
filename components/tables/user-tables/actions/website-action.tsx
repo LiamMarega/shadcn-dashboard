@@ -4,9 +4,10 @@ import { User } from "@/constants/data";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
+import { Client } from "@/lib/stores/store-clients";
 
 interface WebActionProps {
-  data: User;
+  data: Client;
 }
 
 export const WebAction: React.FC<WebActionProps> = ({ data }) => {
@@ -18,7 +19,7 @@ export const WebAction: React.FC<WebActionProps> = ({ data }) => {
   return (
     <>
       <Link href="" target="_blank">
-        <span>www.google.com</span>
+        <span>{data.website}</span>
       </Link>
     </>
   );

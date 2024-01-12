@@ -1,8 +1,7 @@
 import { SearchBar } from "@/components/search/searcher";
-import { UserClient } from "@/components/tables/user-tables/client";
+import { ClientTable } from "@/components/tables/user-tables/client-table";
 import { Metadata } from "next";
 import { users } from "@/constants/data";
-import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
   title: "Discover",
@@ -25,7 +24,7 @@ export default function Page() {
           </div>
         </div>
         <div className="flex flex-col space-y-8 ">
-          <UserClient data={[]} />
+          <ClientTable data={users} />
         </div>
       </div>
     </>

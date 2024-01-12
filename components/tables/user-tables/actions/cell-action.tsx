@@ -9,12 +9,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { User } from "@/constants/data";
+import { Client } from "@/lib/stores/store-clients";
 import { Edit, MoreHorizontal, Trash } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 
 interface CellActionProps {
-  data: User;
+  data: Client;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({ data }) => {

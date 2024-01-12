@@ -1,10 +1,11 @@
 "use client";
 import { ColumnDef } from "@tanstack/react-table";
-import { CellAction } from "./cell-action";
-import { User } from "@/constants/data";
+import { CellAction } from "./actions/cell-action";
 import { Checkbox } from "@/components/ui/checkbox";
-import { MsgAction } from "./msg-action";
-import { WebAction } from "./website-action";
+import { MsgAction } from "./actions/msg-action";
+import { WebAction } from "./actions/website-action";
+import { Client } from "@/lib/stores/store-clients";
+import { User } from "@/constants/data";
 
 export const columns: ColumnDef<User>[] = [
   {
@@ -23,7 +24,7 @@ export const columns: ColumnDef<User>[] = [
         aria-label="Select row"
       />
     ),
-    enableSorting: false,
+    enableSorting: true,
     enableHiding: false,
   },
   {
@@ -31,19 +32,15 @@ export const columns: ColumnDef<User>[] = [
     header: "NAME",
   },
   {
-    accessorKey: "company",
-    header: "COMPANY",
-  },
-  {
     accessorKey: "role",
-    header: "ROLE",
+    header: "COMPANY",
   },
   {
     accessorKey: "status",
     header: "STATUS",
   },
 
-  {
+  /*   {
     header: "WEBSITE",
     id: "website",
     cell: ({ row }) => <WebAction data={row.original} />,
@@ -56,5 +53,5 @@ export const columns: ColumnDef<User>[] = [
   {
     id: "actions",
     cell: ({ row }) => <CellAction data={row.original} />,
-  },
+  }, */
 ];
