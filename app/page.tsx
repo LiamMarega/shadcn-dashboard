@@ -8,23 +8,23 @@ export const metadata: Metadata = {
   description: "Authentication forms built using the components.",
 };
 
-export default function LandingPage() {
+export default function Page() {
   return (
     <>
-      <div className="grid grid-cols-2 relative">
-        <div className="flex flex-col">
+      <div className=" h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+        <div>
           <h1 className="z-10 text-3xl md:text-6xl font-bold ">
             Yours customers
           </h1>
-          <h2 className="z-10 text-5xl md:text-8xl w-auto font-bold bg-gradient-to-r from-primaryColor to-secondaryColor inline-block text-transparent bg-clip-text animate-text ">
+          <h2 className="z-10 text-5xl md:text-8xl  font-bold bg-gradient-to-r from-primaryColor to-secondaryColor inline-block text-transparent bg-clip-text animate-text ">
             {"Booooooosted ;)"}
           </h2>
           <div className="w-6/12 pb-24 pt-10">
-            <SearchBar />
+            <SearchBar isAnimate={true} />
           </div>
-          <div className="absolute right-0 top-0 animate-in ">
-            <LottieFile lottie={peopleMsg} />
-          </div>
+        </div>
+        <div>
+          <LottieFile lottie={peopleMsg} />
         </div>
       </div>
     </>

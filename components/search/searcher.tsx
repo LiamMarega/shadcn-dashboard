@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { FormEvent, useState } from "react";
+import { TypeAnimation } from "react-type-animation";
 import { Input } from "@nextui-org/input";
 import DropMenu from "./dropdown";
 import { Kbd } from "@nextui-org/kbd";
@@ -8,7 +9,7 @@ import { Icons } from "../icons";
 import { useClientStore } from "@/lib/stores/store-clients";
 import { useGlobalStore } from "@/lib/stores/global-store";
 
-export const SearchBar = () => {
+export const SearchBar = ({ isAnimate = false }: { isAnimate?: boolean }) => {
   const [value, setValue] = useState("");
 
   const { getClient } = useClientStore();
@@ -22,10 +23,7 @@ export const SearchBar = () => {
   };
 
   return (
-    <form
-      onSubmit={(e) => onSubmit(e)}
-      className=" hover:shadow-[0px_0px_15px_0.5px] hover:shadow-primaryColor  duration-500"
-    >
+    <form onSubmit={(e) => onSubmit(e)} className="w-full ">
       <Input
         radius="full"
         value={value}
@@ -38,10 +36,12 @@ export const SearchBar = () => {
             "text-black/90 dark:text-white/90",
             "placeholder:text-default-700/50 dark:placeholder:text-white/60",
             "pl-4",
+            ,
           ],
-          innerWrapper: ["bg-transparent", "rounded-md"],
+          innerWrapper: ["bg-transparent", "rounded-md", "relative"],
           inputWrapper: [
             "shadow-xl",
+            "hover:shadow-primaryColor  duration-500",
             "rounded-md",
             "h-16",
             "min-w-[24rem]",
@@ -57,8 +57,34 @@ export const SearchBar = () => {
             "!cursor-text",
           ],
         }}
-        placeholder="Type keywords..."
-        startContent={<Icons.search />}
+        placeholder={isAnimate ? "" : "Type keywords..."}
+        startContent={
+          <div className="flex  grid-cols-2 items-center justify-center">
+            <Icons.search />
+            {isAnimate && (
+              <div className="w-full pl-5">
+                <TypeAnimation
+                  sequence={[
+                    // Same substring at the start will only be typed out once, initially
+                    "Machine shop",
+                    1000, // wait 1s before replacing "Mice" with "Hamsters"
+                    "Taller",
+                    1000,
+                    "Inmobiliaria",
+                    1000,
+                    "Peluqueria, estetica",
+                    1000,
+                  ]}
+                  wrapper="span"
+                  style={{ textOverflow: "ellipsis", whiteSpace: "nowrap" }}
+                  className="text-nowrap"
+                  speed={50}
+                  repeat={Infinity}
+                />
+              </div>
+            )}
+          </div>
+        }
         endContent={
           <div className="flex gap-x-3 w-60">
             <DropMenu />

@@ -33,11 +33,7 @@ export default function DropMenu() {
         selectionMode="single"
         selectedKeys={selectedKeys}
       >
-        <DropdownItem key="text">Text</DropdownItem>
-        <DropdownItem key="number">Number</DropdownItem>
-        <DropdownItem key="date">Date</DropdownItem>
-        <DropdownItem key="single_date">Single Date</DropdownItem>
-        <DropdownItem key="iteration">Iteration</DropdownItem>
+        <DropdownItem key="text"></DropdownItem>
       </DropdownMenu>
     </Dropdown>
   );
