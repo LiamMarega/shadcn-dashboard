@@ -27,6 +27,7 @@ export const SearchBar = ({ isAnimate = false }: { isAnimate?: boolean }) => {
       <Input
         radius="full"
         value={value}
+        disabled={isAnimate}
         onChange={(e) => setValue(e.target.value)}
         classNames={{
           label: "text-black/50 dark:text-white/90",
