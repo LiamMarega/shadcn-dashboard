@@ -4,9 +4,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Transition } from "framer-motion";
 
 export default function ScrollDiv({
+  className,
   children,
   invert,
 }: {
+  className?: string;
   children: React.ReactNode;
   invert?: boolean;
 }) {
@@ -26,10 +28,11 @@ export default function ScrollDiv({
 
   return (
     <motion.div
-      className="container"
+      className={`container ${className}`}
       style={{
         x,
       }}
+      viewport={{ once: true }}
       transition={transition}
     >
       {children}

@@ -7,6 +7,7 @@ import { users } from "@/constants/data";
 import ZoomDiv from "@/components/zoom-div";
 import { AnimatePresence } from "framer-motion";
 import ScrollDiv from "@/components/scroll-div";
+import { KanbanBoard } from "@/components/kanban/kanban-board";
 
 /* export const metadata: Metadata = {
   title: "Clientix, Boost your business",
@@ -44,22 +45,30 @@ export default function Page() {
         </div>
         <LottieFile lottie={peopleMsg} className="animate-in" />
       </div>
-      <ZoomDiv>
+
+      <ZoomDiv key={"zoomdiv-board"}>
         <div className="h-screen pt-10 flex-col items-center justify-center ">
           <ClientTable data={users} />
         </div>
       </ZoomDiv>
-      <div className="h-screen pt-10 flex-col items-center justify-center ">
-        <ScrollDiv>
-          <h3 className="z-10 text-5xl md:text-8xl  font-bold bg-gradient-to-r from-primaryColor to-secondaryColor inline-block text-transparent bg-clip-text animate-text ">
+      <div className="h-52 flex-col items-center justify-center overflow-hidden relative">
+        <ScrollDiv className="flex">
+          <h3 className="z-10 text-5xl md:text-8xl font-bold bg-gradient-to-r from-primaryColor to-secondaryColor inline-block text-transparent bg-clip-text animate-text">
             INCREMENT 500% YOURS
           </h3>
         </ScrollDiv>
-        <ScrollDiv invert={true}>
-          <h3 className="z-10 text-5xl md:text-8xl  font-bold bg-gradient-to-r from-primaryColor to-secondaryColor inline-block text-transparent bg-clip-text animate-text ">
+        <ScrollDiv invert={true} className="flex">
+          <h3 className="z-10 text-5xl md:text-8xl font-bold bg-gradient-to-r from-primaryColor to-secondaryColor inline-block text-transparent bg-clip-text animate-text">
             CUSTOMERS LIST
           </h3>
         </ScrollDiv>
+      </div>
+      <div className="pt-40">
+        <ZoomDiv key={"zoomdiv-kanban-board"}>
+          <div className="h-screen flex-col items-center justify-center ">
+            <KanbanBoard />
+          </div>
+        </ZoomDiv>
       </div>
     </>
   );

@@ -30,6 +30,7 @@ const defaultCols = [
     id: "TODO" as const,
     title: "Todo",
   },
+
   {
     id: "IN_PROGRESS" as const,
     title: "In progress",
@@ -55,15 +56,15 @@ const initialTasks: Task[] = [
   },
 ];
 export function KanbanBoard() {
-  // const [columns, setColumns] = useState<Column[]>(defaultCols);
-  const columns = useTaskStore((state) => state.columns);
-  const setColumns = useTaskStore((state) => state.setCols);
+  const [columns, setColumns] = useState<Column[]>(defaultCols);
+  //   const columns = useTaskStore((state) => state.columns);
+  //   const setColumns = useTaskStore((state) => state.setCols);
   const pickedUpTaskColumn = useRef<ColumnId | null>(null);
   const columnsId = useMemo(() => columns.map((col) => col.id), [columns]);
 
-  // const [tasks, setTasks] = useState<Task[]>(initialTasks);
-  const tasks = useTaskStore((state) => state.tasks);
-  const setTasks = useTaskStore((state) => state.setTasks);
+  const [tasks, setTasks] = useState<Task[]>(initialTasks);
+  //   const tasks = useTaskStore((state) => state.tasks);
+  //   const setTasks = useTaskStore((state) => state.setTasks);
   const [activeColumn, setActiveColumn] = useState<Column | null>(null);
   const [isMounted, setIsMounted] = useState<Boolean>(false);
 
