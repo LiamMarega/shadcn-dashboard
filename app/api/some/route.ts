@@ -7,16 +7,15 @@ export function GET() {
 
 // create POST and send a email
 export async function POST(req: any) {
-  console.log("email hola?");
-  const { email } = await req.json();
+  const data = await req.json();
 
-  console.log("email pa", email);
+  console.log("email pa", data);
 
-  const newEmail = db.email.create({
-    data: {
-      email,
-    },
+  const newEmail = await db.email.create({
+    data,
   });
+  console.log("email pupa", newEmail.email);
+  console.log("email pupa", newEmail.id);
 
   return NextResponse.json(newEmail);
 }

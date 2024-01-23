@@ -17,7 +17,7 @@ export default async function LandingLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} overflow-hidden`}>
+      <body className={`${inter.className} `}>
         <div className="px-24 py-5">{children}</div>
       </body>
     </html>
