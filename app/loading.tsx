@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import Lottie from "lottie-react";
-import customerLoading from "@/lib/assets/lotties/customers.json";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useLockedBody } from "@/lib/hooks/useBodyLock";
 import { useGlobalStore } from "@/lib/stores/global-store";
+import { Icons } from "@/components/icons";
 
 export default function Loading() {
   const [_, setLocked] = useLockedBody(false);
@@ -12,17 +12,29 @@ export default function Loading() {
     loading: state.loading,
   }));
 
-  React.useEffect(() => {
-    setLocked(true);
-  }, []);
-
-  if (!loading) return null;
+  /* if (!loading) return null; */
 
   return (
-    <div className="flex bg-white bg-opacity-75 justify-center items-center z-50 w-screen h-screen fixed">
+    <motion.div
+      className="flex bg-white justify-center items-center z-50 w-screen h-screen fixed"
+      animate={
+        !loading
+          ? {
+              clipPath: ["circle(150% at 50% 50%)", "circle(0% at 0% 0%)"],
+            }
+          : {}
+      }
+      transition={{ ease: "easeInOut", duration: 1, delay: 1 }}
+    >
       <div className="flex flex-col justify-center items-center">
-        <Lottie animationData={customerLoading} className="w-52 h-5w-52" />
+        <motion.div
+          className="absolute"
+          animate={!loading ? { top: 20, left: "2rem" } : {}}
+          transition={{ ease: "easeIn", duration: 0.5 }}
+        >
+          <Icons.logo className="h-8 animate-[pulse_2s_ease-in-out_infinite] " />
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }

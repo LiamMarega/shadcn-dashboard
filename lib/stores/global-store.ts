@@ -9,7 +9,7 @@ export type Actions = {
 };
 
 export const useGlobalStore = create<State & Actions>()((set) => ({
-  loading: false,
+  loading: true,
   setLoading: (loading: boolean) => {
     console.log("loading", loading);
 

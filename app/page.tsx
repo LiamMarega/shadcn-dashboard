@@ -1,21 +1,27 @@
-import { Metadata } from "next";
+"use client";
+import React from "react";
 import { SearchBar } from "@/components/search/searcher";
-import peopleMsg from "@/lib/assets/lotties/messages.json";
-import LottieFile from "@/components/ui/LottieFile";
 import { ClientTable } from "@/components/tables/user-tables/client-table";
+import peopleMsg from "@/lib/assets/lotties/messages.json";
 import { users } from "@/constants/data";
 import ZoomDiv from "@/components/zoom-div";
-import { AnimatePresence } from "framer-motion";
 import ScrollDiv from "@/components/scroll-div";
 import { KanbanBoard } from "@/components/kanban/kanban-board";
-
-/* export const metadata: Metadata = {
-  title: "Clientix, Boost your business",
-  description:
-    "Boost your business with Clientix, Find new customers and Improve your sales.",
-}; */
+import { useGlobalStore } from "@/lib/stores/global-store";
+import LottieFile from "@/components/ui/LottieFile";
 
 export default function Page() {
+  const { loading, setLoading } = useGlobalStore((state) => ({
+    loading: state.loading,
+    setLoading: state.setLoading,
+  }));
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }, []);
+
   const onSubmit = async () => {
     const res = await fetch("/api/some/", {
       method: "POST",

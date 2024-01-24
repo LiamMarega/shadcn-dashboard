@@ -20,6 +20,7 @@ export default function ScrollDiv({
     velocity: 0.2,
   };
   const { scrollYProgress } = useScroll();
+
   const x = useTransform(
     scrollYProgress,
     [0, 0.8, 1],
