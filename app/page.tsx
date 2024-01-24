@@ -54,7 +54,9 @@ export default function Page() {
 
       <ZoomDiv key={"zoomdiv-board"}>
         <div className="h-screen pt-10 flex-col items-center justify-center ">
-          <ClientTable data={users} />
+          <div className="bg-white shadow-xl p-5 rounded-xl">
+            <ClientTable data={users} />
+          </div>
         </div>
       </ZoomDiv>
       <div className="h-52 flex-col items-center justify-center overflow-hidden relative">

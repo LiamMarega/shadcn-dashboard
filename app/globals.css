@@ -144,3 +144,19 @@
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
+
+.grid {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to right, #80808012 1px, transparent 1px),
+    linear-gradient(to bottom, #80808012 1px, transparent 1px);
+  background-size: 24px 24px;
+
+  mask-image: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    #000 100%,
+    transparent 100%
+  );
+}

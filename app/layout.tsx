@@ -19,7 +19,9 @@ export default async function LandingLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} `}>
+      <body
+        className={`${inter.className} absolute inset-0 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]`}
+      >
         <Loading />
         <CustomNavbar />
         <div className="px-24 py-5">{children}</div>
