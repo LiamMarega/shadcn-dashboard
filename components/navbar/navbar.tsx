@@ -36,11 +36,17 @@ function CustomNavbar() {
       <div className="w-screen flex items-center justify-between px-10 p-4">
         <Icons.logo className="h-8" />
 
-        <div className="relative flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse">
+        <div className="relative gap-x-5 flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse">
+          <button
+            type="button"
+            className="bg-secondaryColor relative inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white duration-300 "
+          >
+            Subscribe
+          </button>
           <button
             type="button"
             onClick={toggleMenu}
-            className="relative inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
+            className="relative inline-flex  items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
           >
             English (US)
           </button>

@@ -9,6 +9,7 @@ import ScrollDiv from "@/components/scroll-div";
 import { KanbanBoard } from "@/components/kanban/kanban-board";
 import { useGlobalStore } from "@/lib/stores/global-store";
 import LottieFile from "@/components/ui/LottieFile";
+import SubscribeDialog from "@/components/dialog/subscribe-dialog";
 
 export default function Page() {
   const { loading, setLoading } = useGlobalStore((state) => ({
@@ -37,12 +38,10 @@ export default function Page() {
 
   return (
     <>
-      <div className="h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+      <div className=" h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
         <div>
-          <h1 className="z-10 text-3xl md:text-6xl font-bold ">
-            Yours customers
-          </h1>
-          <h2 className="z-10 text-5xl md:text-8xl  font-bold bg-gradient-to-r from-primaryColor to-secondaryColor inline-block text-transparent bg-clip-text animate-text ">
+          <h1 className=" text-3xl md:text-6xl font-bold ">Yours customers</h1>
+          <h2 className=" text-5xl md:text-8xl  font-bold bg-gradient-to-r from-primaryColor to-secondaryColor inline-block text-transparent bg-clip-text animate-text ">
             {"Booooosted ;)"}
           </h2>
           <div className="w-6/12 pb-24 pt-10">
@@ -53,27 +52,27 @@ export default function Page() {
       </div>
 
       <ZoomDiv key={"zoomdiv-board"}>
-        <div className="h-screen pt-10 flex-col items-center justify-center ">
+        <div className=" h-screen pt-10 flex-col items-center justify-center ">
           <div className="bg-white shadow-xl p-5 rounded-xl">
             <ClientTable data={users} />
           </div>
         </div>
       </ZoomDiv>
-      <div className="h-52 flex-col items-center justify-center overflow-hidden relative">
+      <div className="h-52  flex-col items-center justify-center overflow-hidden relative">
         <ScrollDiv className="flex">
-          <h3 className="z-10 text-5xl md:text-8xl font-bold bg-gradient-to-r from-primaryColor to-secondaryColor inline-block text-transparent bg-clip-text animate-text">
+          <h3 className=" text-5xl md:text-8xl font-bold bg-gradient-to-r from-primaryColor to-secondaryColor inline-block text-transparent bg-clip-text animate-text">
             INCREMENT 500% YOURS
           </h3>
         </ScrollDiv>
-        <ScrollDiv invert={true} className="flex">
-          <h3 className="z-10 text-5xl md:text-8xl font-bold bg-gradient-to-r from-primaryColor to-secondaryColor inline-block text-transparent bg-clip-text animate-text">
+        <ScrollDiv invert={true} className="flex ">
+          <h3 className=" text-5xl md:text-8xl font-bold bg-gradient-to-r from-primaryColor to-secondaryColor inline-block text-transparent bg-clip-text animate-text">
             CUSTOMERS LIST
           </h3>
         </ScrollDiv>
       </div>
-      <div className="pt-40">
+      <div className="pt-40 ">
         <ZoomDiv key={"zoomdiv-kanban-board"}>
-          <div className="h-screen flex-col items-center justify-center ">
+          <div className="h-screen  flex-col items-center justify-center ">
             <KanbanBoard />
           </div>
         </ZoomDiv>

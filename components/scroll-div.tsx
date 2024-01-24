@@ -27,6 +27,17 @@ export default function ScrollDiv({
     invert ? ["-100vw", "0vw", "100vw"] : ["100vw", "0vw", "-100vw"],
   );
 
+  const [hookedYPostion, setHookedYPosition] = React.useState(0);
+
+  React.useEffect(() => {
+    scrollYProgress.updateAndNotify(hookedYPostion);
+
+    return () => {
+      scrollYProgress.clearListeners();
+      scrollYProgress.destroy();
+    };
+  }, [scrollYProgress]);
+
   return (
     <motion.div
       className={`container ${className}`}
