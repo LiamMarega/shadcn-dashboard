@@ -9,7 +9,7 @@ import ScrollDiv from "@/components/scroll-div";
 import { KanbanBoard } from "@/components/kanban/kanban-board";
 import { useGlobalStore } from "@/lib/stores/global-store";
 import LottieFile from "@/components/ui/LottieFile";
-import NewSectionDialog from "@/components/kanban/new-section-dialog";
+import FormDialog from "@/components/custom-dialog";
 
 export default function Page() {
   const { loading, setLoading } = useGlobalStore((state) => ({
@@ -40,7 +40,6 @@ export default function Page() {
     <>
       <div className=" h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
         <div>
-          <NewSectionDialog />
           <h1 className=" text-3xl md:text-6xl font-bold ">Yours customers</h1>
           <h2 className=" text-5xl md:text-8xl  font-bold bg-gradient-to-r from-primaryColor to-secondaryColor inline-block text-transparent bg-clip-text animate-text ">
             {"Booooosted ;)"}

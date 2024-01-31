@@ -8,7 +8,7 @@ import Loading from "./loading";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Next Shadcn",
+  title: "ClientiX+",
   description: "Basic dashboard with Next.js and Shadcn",
 };
 
