@@ -25,7 +25,7 @@ export const SearchBar = ({ isAnimate = false }: { isAnimate?: boolean }) => {
   };
 
   return (
-    <div onClick={() => handleClick()}>
+    <div>
       <form onSubmit={(e) => onSubmit(e)} className="w-full ">
         <Input
           radius="full"
