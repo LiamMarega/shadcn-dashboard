@@ -38,14 +38,14 @@ function CustomNavbar() {
 
         <div className="relative gap-x-5 flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse">
           <FormDialog />
-
+          {/* 
           <button
             type="button"
             onClick={toggleMenu}
             className="relative inline-flex  items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
           >
             English (US)
-          </button>
+          </button> */}
           {/* Dropdown */}
           <div
             className={`z-50 ${
