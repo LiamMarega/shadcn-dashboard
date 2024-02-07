@@ -5,7 +5,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { MsgAction } from "./actions/msg-action";
 import { WebAction } from "./actions/website-action";
 import { Client } from "@/lib/stores/store-clients";
-import { User } from "@/constants/data";
+import { User } from "@/constants/users";
 
 export const columns: ColumnDef<User>[] = [
   {
@@ -40,18 +40,18 @@ export const columns: ColumnDef<User>[] = [
     header: "STATUS",
   },
 
-  /*   {
+  {
     header: "WEBSITE",
     id: "website",
     cell: ({ row }) => <WebAction data={row.original} />,
   },
   {
-    header: "SEND",
+    header: "CONTACT",
     id: "send-msg",
     cell: ({ row }) => <MsgAction data={row.original} />,
   },
   {
     id: "actions",
     cell: ({ row }) => <CellAction data={row.original} />,
-  }, */
+  },
 ];

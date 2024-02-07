@@ -1,13 +1,13 @@
 "use client";
 import { Icons } from "@/components/icons";
-import { User } from "@/constants/data";
+import { User } from "@/constants/users";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
 import { Client } from "@/lib/stores/store-clients";
 
 interface WebActionProps {
-  data: Client;
+  data: User;
 }
 
 export const WebAction: React.FC<WebActionProps> = ({ data }) => {

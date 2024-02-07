@@ -1,3 +1,15 @@
+export type User = {
+  id: number;
+  name: string;
+  role: string;
+  city?: string;
+  status: string;
+  website: string;
+  rating: number;
+  phone: string;
+  email: string;
+};
+
 export const users = [
   {
     id: 1,
